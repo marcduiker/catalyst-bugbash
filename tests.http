@@ -1,0 +1,14 @@
+@daprHttp=https://http-prj64457.api.stg.cloud.diagrid.io
+@workflow_id={{$guid}}
+// @name wfrequest
+POST {{daprHttp}}/v1.0-beta1/workflows/dapr/TestWorkflow/start?instanceID={{workflow_id}}
+dapr-api-token: {{DAPR_API_TOKEN}}
+Content-Type: application/text
+
+"Hello"
+
+
+###
+@wfresponse={{wfrequest.response.body.instanceID}}
+GET {{daprHttp}}/v1.0-beta1/workflows/dapr/{{wfresponse}}
+dapr-api-token: {{DAPR_API_TOKEN}}

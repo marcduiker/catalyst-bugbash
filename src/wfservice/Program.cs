@@ -21,6 +21,7 @@ builder.Services.AddDaprWorkflow(options =>
     options.RegisterWorkflow<TestWorkflow>();
     options.RegisterActivity<Activity1>();
     options.RegisterActivity<Activity2>();
+    options.RegisterActivity<Activity3>();
 });
 
 var app = builder.Build();

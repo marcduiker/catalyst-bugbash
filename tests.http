@@ -8,7 +8,18 @@ Content-Type: application/text
 "Hello"
 
 
-###
+### GET STATUS
 @wfresponse={{wfrequest.response.body.instanceID}}
 GET {{daprHttp}}/v1.0-beta1/workflows/dapr/{{wfresponse}}
+dapr-api-token: {{DAPR_API_TOKEN}}
+
+
+### PAUSE
+
+POST {{daprHttp}}/v1.0-beta1/workflows/dapr/{{wfresponse}}/pause
+dapr-api-token: {{DAPR_API_TOKEN}}
+
+### RESUME
+
+POST {{daprHttp}}/v1.0-beta1/workflows/dapr/{{wfresponse}}/resume
 dapr-api-token: {{DAPR_API_TOKEN}}

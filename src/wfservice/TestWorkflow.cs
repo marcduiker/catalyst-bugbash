@@ -12,6 +12,24 @@ public class TestWorkflow : Workflow<string, string>
             nameof(Activity2),
             result1);
 
-        return result2;
+        var result3 =await context.CallActivityAsync<string>(
+            nameof(Activity3),
+            result2);
+
+        // var tasks = new List<Task<string>>();
+
+        // tasks.Add(context.CallActivityAsync<string>(
+        //     nameof(Activity1),
+        //     input));
+        // tasks.Add(context.CallActivityAsync<string>(
+        //     nameof(Activity2),
+        //     input));
+        // tasks.Add(context.CallActivityAsync<string>(
+        //     nameof(Activity3),
+        //     input));
+
+        // var endResult = await Task.WhenAll(tasks);
+
+        return result3;
     }
 }
